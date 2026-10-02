@@ -1,10 +1,7 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import logo from "../../../public/images/logo/logo.svg";
-import DropDown from "./DropDown";
 import menuData from "./menuData";
 
 const Header = () => {
@@ -24,7 +21,8 @@ const Header = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", handleStickyMenu);
-  });
+    return () => window.removeEventListener("scroll", handleStickyMenu);
+  }, []);
 
   return (
     <>
@@ -37,12 +35,14 @@ const Header = () => {
       >
         <div className="relative mx-auto max-w-[1170px] items-center justify-between px-4 sm:px-8 lg:flex xl:px-0">
           <div className="flex w-full items-center justify-between lg:w-1/4">
-            <Link href="/">
-              <Image src={logo} alt="Logo" width={164} height={36} />
+            <Link href="/" className="game-eyebrow text-sm font-bold uppercase tracking-[0.16em] text-white sm:text-base">
+              Deisia<span className="text-cyan-200">.dev</span>
             </Link>
 
             <button
               onClick={() => setNavigationOpen(!navigationOpen)}
+              aria-label={navigationOpen ? "Close navigation" : "Open navigation"}
+              aria-expanded={navigationOpen}
               className="block lg:hidden"
             >
               <span className="relative block h-5.5 w-5.5 cursor-pointer">
@@ -95,11 +95,7 @@ const Header = () => {
                       stickyMenu ? "lg:py-4" : "lg:py-7"
                     }`}
                   >
-                    {menuItem.submenu ? (
-                      <>
-                        <DropDown menuItem={menuItem} />
-                      </>
-                    ) : (
+                    {
                       <Link
                         href={`${menuItem.path}`}
                         className={`hover:nav-gradient relative border border-transparent px-4 py-1.5 text-sm hover:text-white ${
@@ -110,7 +106,7 @@ const Header = () => {
                       >
                         {menuItem.title}
                       </Link>
-                    )}
+                    }
                   </li>
                 ))}
               </ul>
