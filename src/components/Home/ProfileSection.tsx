@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 const ProfileSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -38,22 +39,14 @@ const ProfileSection = () => {
       <div className="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-[0.85fr_1.15fr] md:gap-16 lg:gap-20">
         <div className="profile-photo-frame profile-photo-reveal relative mx-auto w-full max-w-[390px]">
           <div className="profile-photo relative flex aspect-[4/5] items-center justify-center overflow-hidden border border-cyan-100/20 bg-[#090d20]">
-            <div aria-hidden="true" className="profile-photo-grid absolute inset-0" />
-            <div aria-hidden="true" className="profile-orbit orbit-one absolute h-[75%] aspect-square rounded-full border border-cyan-100/15" />
-            <div aria-hidden="true" className="profile-orbit orbit-two absolute h-[58%] aspect-square rounded-full border border-violet-200/15" />
-            <div aria-hidden="true" className="profile-placeholder relative z-10 flex h-24 w-24 items-center justify-center border border-dashed border-cyan-100/35 bg-[#0b1025]/85 sm:h-28 sm:w-28">
-              <svg aria-hidden="true" viewBox="0 0 48 48" className="h-10 w-10 text-cyan-100/65" fill="none">
-                <circle cx="24" cy="17" r="8" stroke="currentColor" strokeWidth="1.5" />
-                <path d="M8 41c1.8-8.3 7.3-12.5 16-12.5S38.2 32.7 40 41" stroke="currentColor" strokeWidth="1.5" />
-              </svg>
-              <span className="sr-only">Headshot placeholder</span>
-            </div>
-            <span aria-hidden="true" className="profile-particle particle-one" />
-            <span aria-hidden="true" className="profile-particle particle-two" />
-            <span aria-hidden="true" className="profile-particle particle-three" />
-            <span className="game-eyebrow absolute bottom-5 left-5 z-10 border border-white/10 bg-[#080b1d]/80 px-3 py-2 text-[8px] uppercase text-white/55 sm:bottom-6 sm:left-6 sm:text-[9px]">
-              Personal photo coming soon
-            </span>
+            <Image
+              src="/images/deisia-headshot.png"
+              alt="Deisia"
+              fill
+              priority
+              sizes="(max-width: 768px) 90vw, 390px"
+              className="object-cover object-center"
+            />
             <span aria-hidden="true" className="profile-corner corner-top-left" />
             <span aria-hidden="true" className="profile-corner corner-top-right" />
             <span aria-hidden="true" className="profile-corner corner-bottom-left" />
