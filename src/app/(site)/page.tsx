@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import ProfileSection from "@/components/Home/ProfileSection";
 import JourneySection from "@/components/Home/JourneySection";
 import ProjectsSection from "@/components/Home/ProjectsSection";
+import ContactSection from "@/components/Home/ContactSection";
 
 export const metadata: Metadata = {
   title: "Deisia | Web Developer in Progress",
@@ -46,6 +47,8 @@ export default function Home() {
 
       <ProjectsSection />
 
+      <ContactSection />
+
       <section id="game" className="px-5 pb-24 pt-10 sm:px-8 lg:pb-32">
         <div className="game-panel relative mx-auto max-w-6xl overflow-hidden border border-cyan-100/20 px-6 py-14 text-center sm:px-12 sm:py-20">
           <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-50" style={{ backgroundImage: "linear-gradient(rgba(139, 159, 255, .05) 1px, transparent 1px), linear-gradient(90deg, rgba(139, 159, 255, .05) 1px, transparent 1px)", backgroundSize: "36px 36px" }} />
@@ -57,6 +60,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
     </main>
   );
 }

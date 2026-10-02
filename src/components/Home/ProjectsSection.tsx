@@ -68,7 +68,7 @@ const ProjectsSection = () => (
     <div className='mx-auto max-w-6xl'>
       <header className='mb-12 max-w-2xl sm:mb-14'>
         <p className='game-eyebrow mb-4 text-[9px] text-cyan-200 uppercase sm:text-[10px]'>
-          Project select / 01
+          Project selection
         </p>
         <h2
           id='projects-heading'
@@ -77,8 +77,7 @@ const ProjectsSection = () => (
           Choose a project<span className='text-pink-200'>.</span>
         </h2>
         <p className='mt-5 text-base leading-7 text-slate-200/70 sm:text-lg'>
-          This is where I&apos;ll share projects as they&apos;re ready to
-          explore.
+          Pick a project to explore!
         </p>
       </header>
 
